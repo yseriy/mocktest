@@ -20,6 +20,7 @@ public class FMService {
 
 	private final RestTemplate restTemplate;
 	private final ObjectMapper objectMapper;
+
 	private static class FMResponseDTOTypeReference extends TypeReference<FMResponseDTO<FTPCredentialsDTO>> {
 	}
 
