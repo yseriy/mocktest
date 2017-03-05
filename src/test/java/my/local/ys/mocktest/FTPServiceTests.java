@@ -1,6 +1,6 @@
 package my.local.ys.mocktest;
 
-import my.local.ys.mocktest.external.FTPClientBuilder;
+import my.local.ys.mocktest.external.FTPClientFactory;
 import my.local.ys.mocktest.external.FTPService;
 import org.apache.commons.net.ftp.FTPClient;
 import org.junit.Before;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.*;
 public class FTPServiceTests {
 
 	@MockBean
-	private FTPClientBuilder ftpClientBuilder;
+	private FTPClientFactory ftpClientFactory;
 
 	@Autowired
 	private FTPService ftpService;
@@ -31,7 +31,7 @@ public class FTPServiceTests {
 	@Before
 	public void setup() {
 		mockedFtpClient = mock(FTPClient.class);
-		when(ftpClientBuilder.build()).thenReturn(mockedFtpClient);
+		when(ftpClientFactory.createClient()).thenReturn(mockedFtpClient);
 	}
 
 	@Test

@@ -8,14 +8,14 @@ import java.io.IOException;
 @Service
 public class FTPService {
 
-	private final FTPClientBuilder ftpClientBuilder;
+	private final FTPClientFactory ftpClientFactory;
 
-	public FTPService(FTPClientBuilder ftpClientBuilder) {
-		this.ftpClientBuilder = ftpClientBuilder;
+	public FTPService(FTPClientFactory ftpClientFactory) {
+		this.ftpClientFactory = ftpClientFactory;
 	}
 
 	public FTPClient getFTPClient(String hostName, String userName, String userPass) throws IOException {
-		FTPClient ftpClient = ftpClientBuilder.build();
+		FTPClient ftpClient = ftpClientFactory.createClient();
 		ftpClient.connect(hostName);
 		ftpClient.login(userName, userPass);
 

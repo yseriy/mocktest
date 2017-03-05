@@ -4,9 +4,9 @@ import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FTPClientBuilder {
+public class FTPClientFactory {
 
-	public FTPClient build() {
+	public FTPClient createClient() {
 		return new FTPClient();
 	}
 }
